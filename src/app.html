@@ -26,57 +26,60 @@
 
   <body>
     <div class='container'>
-      <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-        <a class="navbar-brand" href="#">AlkOnline</a>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <h2>Alk Online</h2>
+          <h5>Write code using the Alk language</h5>
+        </div>
+      </div>
 
-        <form class="form-inline pull-right">
+      <div class='row title'>
+        <div class='col-xs-12'>
+          <h6>
+            <a href="https://github.com/alk-language/documentation/blob/master/alk.pdf" target="_new">Documentation</a>
+            <span>/</span>
+            <a href="#" data-toggle="modal" data-target="#myModal">Examples</a>
+          </h6>
+        </div>
+      </div>
+
+      <div class='row code-cl'>
+        <div class='col-md-6 editor-container'>
+          <h4>Code</h4>
+          <div class='editor' id='code' data-intro="Write code using the Alk language."></div>
+        </div>
+
+        <div class='col-md-6 hidden-md-up' style='height: 2%;'></div>
+
+        <div class='col-md-6 editor-container editor-params-container'>
+          <h4>Params</h4>
+          <div class='editor' id='params' data-intro="Parameters for your code. Example: a |-> 5."></div>
+        </div>
+
+        <div class='col-md-6' style='height: 2%;'></div>
+
+        <div class='col-md-6 editor-container'>
+          <h4>Result</h4>
+          <div class='editor' id='result'></div>
+        </div>
+
+        <div class='col-md-6' style='height: 2%;'></div>
+
+        <div class='col-md-6'>
           <div class="btn-group" role="group" aria-label="Commands">
-            <button type="button" class="btn btn-success" id="run" data-intro="Ruleaza codul tau. De obicei dureaza 10 - 15 secunde.">
+            <button type="button" class="btn btn-success" id="run" data-intro="Run your code. Usually takes about 5 seconds.">
               <i class='fa fa-play notloading'></i>
               <i class='fa fa-spinner loading' hidden></i>
             </button>
             <!-- <button type="button" class="btn bg-warning" data-intro="Salveaza codul tau (online) pentru a-l putea edita mai tarziu"><i class='fa fa-floppy-o'></i></button> -->
-            <button type="button" class="btn btn-info" id="save" data-intro="Downloadeaza codul tau"><i class='fa fa-download'></i></button>
-            <button type="button" class="btn btn-warning" onclick="javascript:introJs().start();" data-intro="Ruleaza ghidul"><i class='fa fa-question'></i></button>
+            <button type="button" class="btn btn-info" id="save" data-intro="Download your code"><i class='fa fa-download'></i></button>
+            <button type="button" class="btn btn-warning" onclick="javascript:introJs().start();" data-intro="Run guide"><i class='fa fa-question'></i></button>
           </div>
-        </form>
-      </nav>
-
-      <div class='row title'>
-        <div class='col-xs-12'>
-          <h5>Codul tau</h5>
-          <h6>Scrie aici codul tau. Poti incarca un exemplu de aici: <a href="#" data-toggle="modal" data-target="#myModal">exemple</a>.</h6>
-          <h6>Documentatia o gasesti <a href="#" data-toggle="modal" data-target="#modalDocumentation">aici</a>.</h6>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='col-xs-12'>
-          <div class='editor' id='code' data-intro="Codrul trebuie sa fie scris in Alk."></div>
         </div>
       </div>
 
       <div class='row title'>
         <div class='col-xs-12'>
-          <h5>Parameterii</h5>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='col-xs-12'>
-          <div class='editor' id='params' data-intro="Parametrii pentru codul tau. Exemplu: a |-> 5"></div>
-        </div>
-      </div>
-
-      <div class='row title'>
-        <div class='col-xs-12'>
-          <h5>Rezultat</h5>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='col-xs-12'>
-          <div class='editor' id='result'></div>
         </div>
       </div>
     </div>
@@ -88,128 +91,16 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">Exemple</h4>
+          <h4 class="modal-title">Examples</h4>
         </div>
         <div class="modal-body">
-          <h6>Incearca unul din exemplele de mai jos</h6>
+          <h6>Load one of the examples below:</h6>
 
           <ul class="list-group">
             <!-- <li class="list-group-item" onclick="loadExample('bubblesort');" data-dismiss="modal">Bubble Sort</li> -->
-            <li class="list-group-item" onclick="loadExample('gcd');" data-dismiss="modal">Cel mai mare divizor comun</li>
+            <li class="list-group-item" onclick="loadExample('gcd');" data-dismiss="modal">GCD</li>
             <!-- <li class="list-group-item" onclick="loadExample('dfs');" data-dismiss="modal">DFS</li> -->
           </ul>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="modalDocumentation" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title">Documentatia limbajului Alk</h4>
-        </div>
-        <div class="modal-body">
-<section>
-<h6>Este un limbaj de programare C-like</h6>
-</section>
-
-<section>
-<h6>Comentarii</h6>
-
-<pre>
-/*
-
-comentariile se scriu asa
-
-*/
-</pre>
-</section>
-
-<section>
-<h6>Programele se ruleaza astfel</h6>
-
-<pre>
-krun programul.alk -cINIT=".Map" sau cu configuratii intiale, de exemplu vectorul a este [3, 5, 6, 4]:
-
-krun programul.alk -cINIT="a |-> [3, 5, 6, 4]"
-</pre>
-</section>
-
-<section>
-<h6>Structura unui program</h6>
-<pre>
-functia1(argumente1) {
-
-return valoare1;
-
-}
-
-functia2(argumente2) {
-
-return valoare2;
-
-}
-
-si programul principal ce contine instructiuni si apelarea unor functii
-
-instructiuni
-
-apelare functii
-</pre>
-</section>
-
-<section>
-<h6>Instructiunea if</h6>
-<pre>
-Arata ca in C: if (conditie) instructiune1 sau
-
-if (conditie) instructiune1; else instructiune2
-</pre>
-</section>
-
-<section>
-<h6>Instructiunea for</h6>
-<pre>
-Se foloseste operatorul ++ astfel: ++i (nu i++)
-
-for (i= 1; i <= n; ++i) instructiune
-</pre>
-</section>
-
-<section>
-<h6>Instruciunea while</h6>
-<pre>
-Instructiunea se pune intre { si }
-
-while (conditie)
-{
-Instructiune;
-}
-
-Instructiunea do { } while nu exista
-</pre>
-</section>
-
-<section>
-<h6>Tipuri de date</h6>
-<pre>
-Tipurile de date nu se precizeaza, nici in apeluri, nici ca parametri formali, se subinteleg din context.
-</pre>
-</section>
-
-<section>
-<h6>Tablouri</h6>
-<pre>
-a = [3, 5, 6, 4]; declara un vector cu 4 numere intregi
-
-al i-lea element din vector a[i]
-</pre>
-</section>
-
         </div>
         </div>
       </div>

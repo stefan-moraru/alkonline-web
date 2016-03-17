@@ -13,11 +13,13 @@
     "build": "npm install && rm -rf dist && mkdir -p dist && npm run build-babel && npm run build-sass && npm run build-html",
     "build-babel": "touch dist/app.js && babel src/app.js --out-file dist/app.js",
     "build-sass": "touch dist/app.css && sass src/app.scss dist/app.css",
+		"build-fonts": "cp -r src/fonts dist",
     "build-html": "cp src/app.html dist/index.html",
-    "watch": "npm run watch-babel & npm run watch-sass & npm run watch-html",
+    "watch": "npm run watch-babel & npm run watch-sass & npm run watch-html & npm run build-fonts",
     "watch-babel": "babel src --out-dir dist --watch",
     "watch-sass": "sass --watch src/app.scss:dist/app.css",
-    "watch-html": "watch -n2 'npm run build-html'"
+    "watch-html": "watch -n2 'npm run build-html'",
+		"watch-fonts": "watch -n2 'npm run build-fonts'"
   },
   "author": "Stefan Moraru",
   "license": "ISC"
