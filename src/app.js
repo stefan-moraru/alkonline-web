@@ -89,7 +89,13 @@ function saveCode() {
 
   var blob = new Blob([code], { type: 'text/plain;charset=utf-8' });
 
-  saveAs(blob, window.prompt('Numele fisierului', '') + '.alk');
+  const name = window.prompt('File name (extension will be added automatically)', '').replace(/\.alk$/, '') + '.alk';
+
+  if (!name) {
+    return false;
+  }
+
+  saveAs(blob, name);
 }
 
 function loadExample (example) {
@@ -114,15 +120,15 @@ x = gcd(a, b);`,
 },
 'dfs': {
 'code': `i = 0;
-  
+
 while (i < D.n) {
-  
+
   p[i] = (D.a)[i];
-  
+
   S[i] = 0;
-  
+
   i = i + 1;
-  
+
 }
 
 SB = < i0 >;
@@ -165,4 +171,3 @@ while (SB.size() > 0) {
   editorParams.setValue(examples[example].params, 1);
 
 }
-
